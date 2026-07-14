@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520">
+<defs>
+<linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#F6D77B"/>
+<stop offset="100%" stop-color="#B8860B"/>
+</linearGradient>
+
+<linearGradient id="shield" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" stop-color="#163A6B"/>
+<stop offset="100%" stop-color="#08172E"/>
+</linearGradient>
+</defs>
+
+<!-- Щит -->
+<path d="
+M300 35
+L470 95
+V215
+C470 340 390 425 300 485
+C210 425 130 340 130 215
+V95
+Z"
+fill="url(#shield)"
+stroke="url(#gold)"
+stroke-width="8"/>
+
+<!-- Внутренний контур -->
+<path d="
+M300 55
+L448 108
+V214
+C448 324 378 396 300 450
+C222 396 152 324 152 214
+V108
+Z"
+fill="none"
+stroke="#E9D089"
+stroke-width="2"
+opacity=".45"/>
+
+<!-- Звезда -->
+<path
+fill="url(#gold)"
+d="M300 78
+l7 15
+16 2
+-12 10
+4 16
+-15-8
+-15 8
+4-16
+-12-10
+16-2z"/>
+
+<!-- Циркуль -->
+<g stroke="url(#gold)"
+stroke-width="7"
+stroke-linecap="round"
+fill="none">
+
+<circle cx="300" cy="135" r="10"/>
+
+<line x1="300" y1="145" x2="255" y2="255"/>
+
+<line x1="300" y1="145" x2="345" y2="255"/>
+
+<line x1="280" y1="175" x2="320" y2="175"/>
+
+</g>
+
+<!-- Книга -->
+
+<path
+d="
+M200 275
+Q250 245 300 275
+V355
+Q250 330 200 355Z"
+fill="#FFF"
+stroke="url(#gold)"
+stroke-width="3"/>
+
+<path
+d="
+M400 275
+Q350 245 300 275
+V355
+Q350 330 400 355Z"
+fill="#FFF"
+stroke="url(#gold)"
+stroke-width="3"/>
+
+<line
+x1="300"
+y1="275"
+x2="300"
+y2="355"
+stroke="url(#gold)"
+stroke-width="3"/>
+
+<!-- Страницы -->
+
+<path d="M220 295 Q255 287 285 298"
+stroke="#D4AF37"
+stroke-width="2"
+fill="none"/>
+
+<path d="M220 315 Q255 307 285 318"
+stroke="#D4AF37"
+stroke-width="2"
+fill="none"/>
+
+<path d="M315 298 Q345 287 380 295"
+stroke="#D4AF37"
+stroke-width="2"
+fill="none"/>
+
+<path d="M315 318 Q345 307 380 315"
+stroke="#D4AF37"
+stroke-width="2"
+fill="none"/>
+
+<!-- Левая ветвь -->
+
+<path
+d="
+M175 335
+C140 285 145 195 205 145"
+stroke="url(#gold)"
+stroke-width="3"
+fill="none"/>
+
+<!-- Правая ветвь -->
+
+<path
+d="
+M425 335
+C460 285 455 195 395 145"
+stroke="url(#gold)"
+stroke-width="3"
+fill="none"/>
+
+<!-- Листья -->
+
+<g fill="url(#gold)">
+
+<ellipse cx="176" cy="310" rx="5" ry="10" transform="rotate(-28 176 310)"/>
+<ellipse cx="166" cy="282" rx="5" ry="10" transform="rotate(-28 166 282)"/>
+<ellipse cx="162" cy="254" rx="5" ry="10" transform="rotate(-28 162 254)"/>
+<ellipse cx="166" cy="226" rx="5" ry="10" transform="rotate(-28 166 226)"/>
+<ellipse cx="178" cy="198" rx="5" ry="10" transform="rotate(-28 178 198)"/>
+
+<ellipse cx="424" cy="310" rx="5" ry="10" transform="rotate(28 424 310)"/>
+<ellipse cx="434" cy="282" rx="5" ry="10" transform="rotate(28 434 282)"/>
+<ellipse cx="438" cy="254" rx="5" ry="10" transform="rotate(28 438 254)"/>
+<ellipse cx="434" cy="226" rx="5" ry="10" transform="rotate(28 434 226)"/>
+<ellipse cx="422" cy="198" rx="5" ry="10" transform="rotate(28 422 198)"/>
+
+</g>
+
+<!-- Лента -->
+
+<path
+d="
+M220 415
+Q300 450 380 415"
+stroke="url(#gold)"
+stroke-width="5"
+fill="none"/>
+
+</svg>
