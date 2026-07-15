@@ -1,146 +1,162 @@
-// ===============================
-// ПЛАВНАЯ ПРОКРУТКА ЭКРАНОВ
-// ===============================
+// =====================================
+// ЭКРАНЫ
+// =====================================
 
-const pages = document.querySelectorAll(".page");
-const container = document.getElementById("pages");
-const menuLinks = document.querySelectorAll("nav a");
+const pages = document.querySelector("#pages");
 
-let current = 0;
-let lock = false;
+let page = 0;
 
-// Обновление положения контейнера
-function updatePage() {
-    container.style.transform = `translateY(-${current * 100}vh)`;
+let locked = false;
 
-    pages.forEach((page, index) => {
-        if (index === current) {
-            page.classList.add("active");
-        } else {
-            page.classList.remove("active");
-        }
-    });
+// =====================================
+// ЦИЛИНДР
+// =====================================
 
-    menuLinks.forEach((link, index) => {
-        link.classList.toggle("active", index === current);
-    });
+const wheel = document.querySelector(".cylinderWheel");
+
+const services = document.querySelectorAll(".service");
+
+let angle = 0;
+
+let currentService = 0;
+
+// =====================================
+// ПЕРЕКЛЮЧЕНИЕ ЭКРАНОВ
+// =====================================
+
+function goTo(index){
+
+    page=index;
+
+    pages.style.transform=
+    `translateY(-${page*100}vh)`;
+
 }
 
-// Переключение на следующую страницу
-function nextPage() {
-    if (current < pages.length - 1) {
-        current++;
-        updatePage();
-    }
-}
+// =====================================
+// АКТИВНАЯ КАРТОЧКА
+// =====================================
 
-// Переключение на предыдущую страницу
-function prevPage() {
-    if (current > 0) {
-        current--;
-        updatePage();
-    }
-}
+function updateService(){
 
-// Прокрутка колесом
-window.addEventListener("wheel", (e) => {
+    services.forEach(card=>{
 
-    if (lock) return;
-
-    lock = true;
-
-    if (e.deltaY > 0) {
-        nextPage();
-    } else {
-        prevPage();
-    }
-
-    setTimeout(() => {
-        lock = false;
-    }, 900);
-
-}, { passive: true });
-
-// Клавиатура
-window.addEventListener("keydown", (e) => {
-
-    if (lock) return;
-
-    if (e.key === "ArrowDown") {
-
-        lock = true;
-        nextPage();
-
-    }
-
-    if (e.key === "ArrowUp") {
-
-        lock = true;
-        prevPage();
-
-    }
-
-    setTimeout(() => {
-        lock = false;
-    }, 900);
-
-});
-
-// Клики по меню
-menuLinks.forEach((link, index) => {
-
-    link.addEventListener("click", (e) => {
-
-        e.preventDefault();
-
-        current = index;
-
-        updatePage();
+        card.classList.remove("active");
 
     });
 
-});
+    services[currentService].classList.add("active");
 
-// ===============================
-// АНИМАЦИЯ ПОЯВЛЕНИЯ
-// ===============================
+}
 
-const observer = new IntersectionObserver((entries) => {
+// =====================================
+// ВРАЩЕНИЕ БАРАБАНА
+// =====================================
 
-    entries.forEach(entry => {
+function rotateCylinder(dir){
 
-        if (entry.isIntersecting) {
+    angle+=dir*120;
 
-            entry.target.classList.add("show");
+    wheel.style.transform=
 
-        }
+    `rotateX(${angle}deg)`;
 
-    });
+    currentService-=dir;
 
-}, {
-    threshold: 0.3
-});
+    if(currentService<0)
+        currentService=2;
 
-document.querySelectorAll(".card,.price,.contactsCard,.aboutBox,.contactWindow").forEach(el => {
-    observer.observe(el);
-});
+    if(currentService>2)
+        currentService=0;
 
-// ===============================
-// НЕБОЛЬШОЙ ПАРАЛЛАКС
-// ===============================
+    updateService();
 
-document.addEventListener("mousemove", (e) => {
+}
 
-    const x = (e.clientX - window.innerWidth / 2) / 70;
-    const y = (e.clientY - window.innerHeight / 2) / 70;
+// =====================================
+// КОЛЕСО
+// =====================================
 
-    document.querySelector(".heroLeft").style.transform =
-        `translate(${x}px,${y}px)`;
+window.addEventListener("wheel",e=>{
 
-    document.querySelector(".heroRight").style.transform =
-        `translate(${-x}px,${-y}px)`;
+if(locked)return;
 
-});
+locked=true;
+
+setTimeout(()=>{
+
+locked=false;
+
+},700);
 
 // Первый экран
-updatePage();
+
+if(page==0){
+
+if(e.deltaY>0){
+
+goTo(1);
+
+}
+
+return;
+
+}
+
+// Второй экран
+
+if(page==1){
+
+if(e.deltaY>0){
+
+rotateCylinder(1);
+
+}
+
+else{
+
+rotateCylinder(-1);
+
+}
+
+}
+
+});
+
+// =====================================
+// КЛАВИШИ
+// =====================================
+
+window.addEventListener("keydown",e=>{
+
+if(e.key==="ArrowDown"){
+
+if(page===0){
+
+goTo(1);
+
+}
+
+else{
+
+rotateCylinder(1);
+
+}
+
+}
+
+if(e.key==="ArrowUp"){
+
+if(page===1){
+
+rotateCylinder(-1);
+
+}
+
+}
+
+});
+
+// =====================================
+
+updateService();
