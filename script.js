@@ -16,6 +16,8 @@ const wheel = document.querySelector(".cylinderWheel");
 
 const services = document.querySelectorAll(".service");
 
+const dots = document.querySelectorAll(".dot");
+
 let angle = 0;
 
 let currentService = 0;
@@ -46,6 +48,18 @@ function updateService(){
     });
 
     services[currentService].classList.add("active");
+
+    dots.forEach(dot=>{
+
+        dot.classList.remove("active");
+
+    });
+
+    if(dots[currentService]){
+
+        dots[currentService].classList.add("active");
+
+    }
 
 }
 

@@ -1,4 +1,31 @@
 /* ===========================
+   ПЕРЕМЕННЫЕ — ГЕРАЛЬДИЧЕСКАЯ ПАЛИТРА
+=========================== */
+
+:root{
+
+    --navy-black:#060D1A;
+    --navy-deep:#0B1A33;
+    --navy-mid:#173B67;
+    --navy-panel:#102544;
+
+    --ink:#1C2438;
+
+    --parchment:#F6EFDD;
+    --parchment-shadow:#E3D6AE;
+
+    --gold:#C9A227;
+    --gold-light:#E9D18B;
+    --gold-dark:#8C6A14;
+
+    --cream:#F1E9D4;
+
+    --font-display:'Playfair Display',Georgia,serif;
+    --font-serif:'EB Garamond',Georgia,serif;
+
+}
+
+/* ===========================
    RESET
 =========================== */
 
@@ -13,13 +40,13 @@ body{
     width:100%;
     height:100%;
     overflow:hidden;
-    font-family:'Montserrat',sans-serif;
-    background:#07152D;
-    color:#fff;
+    font-family:var(--font-serif);
+    background:var(--navy-deep);
+    color:var(--cream);
 }
 
 /* ===========================
-   ФОН
+   ФОН — ГРАФЛЁНАЯ БУМАГА
 =========================== */
 
 #background{
@@ -29,7 +56,7 @@ body{
     z-index:-2;
 
     background:
-    radial-gradient(circle at top,#14396d 0%,#07152d 45%,#040b18 100%);
+    radial-gradient(circle at 50% 8%,var(--navy-mid) 0%,var(--navy-deep) 48%,var(--navy-black) 100%);
 
 }
 
@@ -42,18 +69,18 @@ body{
 
     background-image:
 
-    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(rgba(201,162,39,.05) 1px,transparent 1px),
 
-    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    linear-gradient(90deg,rgba(201,162,39,.05) 1px,transparent 1px);
 
-    background-size:60px 60px;
+    background-size:64px 64px;
 
-    opacity:.35;
+    opacity:.6;
 
 }
 
 /* ===========================
-   СТРАНИЦЫ
+   СТРАНИЦЫ + РАМКА-ПАСПАРТУ
 =========================== */
 
 #pages{
@@ -64,10 +91,41 @@ body{
 
 .page{
 
+    position:relative;
+
+    overflow:hidden;
+
     width:100%;
     height:100vh;
 
-    padding:50px 80px;
+    padding:56px 88px;
+
+}
+
+.page::before,
+.page::after{
+
+    content:"";
+
+    position:absolute;
+
+    pointer-events:none;
+
+    border:1px solid rgba(201,162,39,.55);
+
+}
+
+.page::before{
+
+    inset:20px;
+
+}
+
+.page::after{
+
+    inset:26px;
+
+    border-color:rgba(201,162,39,.22);
 
 }
 
@@ -99,15 +157,18 @@ body{
 
     align-items:center;
 
-    padding:60px;
+    padding:56px 64px;
 
-    border-radius:35px;
+    border-radius:6px;
 
-    background:rgba(255,255,255,.07);
+    background:
+    linear-gradient(160deg,rgba(23,59,103,.55),rgba(6,13,26,.35));
 
-    backdrop-filter:blur(18px);
+    border:1px solid rgba(201,162,39,.35);
 
-    border:1px solid rgba(255,255,255,.08);
+    box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.15),
+    0 30px 60px rgba(0,0,0,.4);
 
 }
 
@@ -121,38 +182,69 @@ body{
 
     align-items:center;
 
-    gap:45px;
+    gap:48px;
 
 }
 
 .logo{
 
-    width:170px;
+    width:160px;
 
     transition:.4s;
+
+    filter:drop-shadow(0 6px 18px rgba(0,0,0,.4));
 
 }
 
 .logo:hover{
 
-    transform:rotate(-4deg) scale(1.05);
+    transform:rotate(-3deg) scale(1.04);
+
+    filter:drop-shadow(0 6px 18px rgba(0,0,0,.4)) drop-shadow(0 0 16px rgba(201,162,39,.5));
+
+}
+
+.eyebrow{
+
+    display:block;
+
+    font-family:var(--font-serif);
+    font-variant:small-caps;
+    letter-spacing:.14em;
+
+    font-size:15px;
+    font-weight:600;
+
+    color:var(--gold-light);
+
+    margin-bottom:14px;
+
+}
+
+.eyebrow.center{
+
+    text-align:center;
+
+    margin-bottom:8px;
 
 }
 
 .slogan h1{
 
-    font-size:68px;
+    font-family:var(--font-display);
 
-    line-height:1;
+    font-size:64px;
+
+    line-height:1.05;
 
     font-weight:800;
 
-    color:#D4AF37;
+    color:var(--gold);
 
 }
 
 /* ===========================
-   КОНТАКТЫ
+   КОНТАКТЫ — "ГРАМОТА"
 =========================== */
 
 .contacts{
@@ -171,13 +263,13 @@ body{
 
     height:100%;
 
-    background:white;
+    background:var(--parchment);
 
-    color:#07152D;
+    color:var(--ink);
 
-    padding:38px;
+    padding:40px 42px;
 
-    border-radius:18px;
+    border-radius:4px;
 
     overflow:hidden;
 
@@ -185,27 +277,35 @@ body{
 
     flex-direction:column;
 
+    box-shadow:0 25px 45px rgba(0,0,0,.35);
+
 }
 
 .paper h2{
 
-    color:#07152D;
+    font-family:var(--font-display);
 
-    margin-bottom:12px;
+    color:var(--ink);
 
-    font-size:26px;
+    font-weight:700;
+
+    margin-bottom:14px;
+
+    font-size:25px;
+
+    letter-spacing:.03em;
 
 }
 
 .line{
 
-    width:90px;
+    width:64px;
 
-    height:4px;
+    height:3px;
 
-    background:#D4AF37;
+    background:var(--gold);
 
-    margin-bottom:10px;
+    margin-bottom:22px;
 
 }
 
@@ -217,19 +317,59 @@ body{
 
     flex-direction:column;
 
-    justify-content:space-between;
+    justify-content:flex-start;
 
-    padding:6px 0 34px;
+    gap:2px;
+
+    padding:0 0 34px;
 
 }
 
-.paper p{
+.contactRow{
 
-    margin:0;
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:baseline;
+
+    gap:14px;
+
+    padding:13px 0;
+
+    border-bottom:1px dotted rgba(28,36,56,.32);
+
+}
+
+.contactRow:last-child{
+
+    border-bottom:none;
+
+}
+
+.ct-label{
+
+    font-variant:small-caps;
+
+    letter-spacing:.06em;
+
+    font-weight:600;
+
+    font-size:15px;
+
+    color:var(--gold-dark);
+
+    white-space:nowrap;
+
+}
+
+.ct-value{
 
     font-weight:500;
 
     font-size:17px;
+
+    text-align:right;
 
 }
 
@@ -245,11 +385,11 @@ body{
 
     bottom:0;
 
-    width:110px;
+    width:104px;
 
-    height:110px;
+    height:104px;
 
-    background:#ececec;
+    background:var(--parchment-shadow);
 
     clip-path:polygon(
     25% 0,
@@ -259,15 +399,15 @@ body{
     );
 
     box-shadow:
-    -5px -5px 15px rgba(0,0,0,.15);
+    -5px -5px 15px rgba(0,0,0,.12);
 
 }
 
 .corner svg{
 
-    width:75px;
+    width:70px;
 
-    height:75px;
+    height:70px;
 
     margin:22px;
 
@@ -275,7 +415,7 @@ body{
 
 .corner line{
 
-    stroke:#07152D;
+    stroke:var(--ink);
 
     stroke-width:3;
 
@@ -285,7 +425,7 @@ body{
 
     fill:none;
 
-    stroke:#D4AF37;
+    stroke:var(--gold-dark);
 
     stroke-width:4;
 
@@ -295,33 +435,53 @@ body{
    QR
 =========================== */
 
+.qrEyebrow{
+
+    display:block;
+
+    text-align:center;
+
+    font-variant:small-caps;
+
+    letter-spacing:.14em;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:var(--gold-light);
+
+    opacity:.8;
+
+    margin-bottom:16px;
+
+}
+
 .qrRow{
 
     display:flex;
 
     justify-content:center;
 
-    gap:45px;
+    gap:40px;
 
-    margin-bottom:35px;
+    margin-bottom:8px;
 
 }
 
 .qrCard{
 
-    width:220px;
+    width:210px;
 
-    padding:22px;
+    padding:24px;
 
-    border-radius:22px;
+    border-radius:6px;
 
     text-align:center;
 
-    background:rgba(255,255,255,.07);
+    background:linear-gradient(160deg,rgba(23,59,103,.5),rgba(6,13,26,.35));
 
-    backdrop-filter:blur(12px);
-
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(201,162,39,.3);
 
     transition:.35s;
 
@@ -329,25 +489,31 @@ body{
 
 .qrCard:hover{
 
-    transform:translateY(-10px);
+    transform:translateY(-8px);
 
-    box-shadow:0 18px 35px rgba(0,0,0,.35);
+    border-color:var(--gold);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.4);
 
 }
 
 .qrImage{
 
-    width:160px;
+    width:150px;
 
-    height:160px;
+    height:150px;
 
     margin:auto;
 
     margin-bottom:18px;
 
-    border:3px dashed #D4AF37;
+    border:2px solid var(--gold);
 
-    border-radius:18px;
+    outline:1px solid rgba(201,162,39,.35);
+
+    outline-offset:5px;
+
+    border-radius:4px;
 
     display:flex;
 
@@ -355,11 +521,32 @@ body{
 
     justify-content:center;
 
-    font-size:30px;
+    font-family:var(--font-display);
+
+    font-size:26px;
 
     font-weight:700;
 
+    color:var(--gold-light);
+
 }
+
+.qrCard h3{
+
+    font-family:var(--font-serif);
+
+    font-variant:small-caps;
+
+    letter-spacing:.08em;
+
+    font-weight:600;
+
+    font-size:18px;
+
+    color:var(--cream);
+
+}
+
 /* ===========================================
    ВТОРОЙ ЭКРАН
 =========================================== */
@@ -382,20 +569,24 @@ overflow:hidden;
 
 .prices h1{
 
-font-size:64px;
+font-family:var(--font-display);
+
+font-size:56px;
 
 font-weight:800;
 
-margin-bottom:70px;
+margin-bottom:56px;
 
-color:#D4AF37;
+color:var(--gold);
 
-letter-spacing:2px;
+letter-spacing:.01em;
+
+text-align:center;
 
 }
 
 /* ===========================================
-   ОБЛАСТЬ ЦИЛИНДРА
+   ОБЛАСТЬ ВИТРИНЫ
 =========================================== */
 
 .cylinder{
@@ -417,7 +608,7 @@ align-items:center;
 }
 
 /* ===========================================
-   ВРАЩАЮЩИЙСЯ БАРАБАН
+   РАМКА ВИТРИНЫ
 =========================================== */
 
 .cylinder::before{
@@ -430,23 +621,16 @@ width:560px;
 
 height:300px;
 
-border-radius:40px;
+border-radius:6px;
 
 background:
+linear-gradient(180deg,rgba(23,59,103,.55),rgba(6,13,26,.3));
 
-linear-gradient(
-180deg,
-rgba(255,255,255,.12),
-rgba(255,255,255,.03)
-);
-
-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,.08);
+border:1px solid rgba(201,162,39,.4);
 
 box-shadow:
-
-0 35px 70px rgba(0,0,0,.45);
+inset 0 0 0 1px rgba(0,0,0,.2),
+0 35px 70px rgba(0,0,0,.5);
 
 z-index:1;
 
@@ -473,7 +657,7 @@ z-index:2;
 }
 
 /* ===========================================
-   КАРТОЧКИ
+   ТАБЛИЧКИ
 =========================================== */
 
 .service{
@@ -488,7 +672,7 @@ width:100%;
 
 height:120px;
 
-border-radius:25px;
+border-radius:6px;
 
 display:flex;
 
@@ -498,47 +682,83 @@ justify-content:center;
 
 align-items:center;
 
-background:
+background:linear-gradient(160deg,rgba(16,37,68,.9),rgba(6,13,26,.85));
 
-rgba(255,255,255,.07);
-
-border:
-
-1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(15px);
+border:1px solid rgba(201,162,39,.3);
 
 backface-visibility:hidden;
 
-transition:
+transition:1s cubic-bezier(.22,.61,.36,1);
 
-1s cubic-bezier(.22,.61,.36,1);
-
-box-shadow:
-
-0 12px 25px rgba(0,0,0,.35);
+box-shadow:0 14px 28px rgba(0,0,0,.4);
 
 z-index:3;
 
 }
 
+.serviceMark{
+
+position:absolute;
+
+top:12px;
+
+left:18px;
+
+font-family:var(--font-display);
+
+font-style:italic;
+
+font-size:14px;
+
+letter-spacing:.08em;
+
+color:var(--gold-dark);
+
+}
+
 .service h2{
 
-font-size:34px;
+font-family:var(--font-serif);
 
-font-weight:700;
+font-variant:small-caps;
 
-margin-bottom:12px;
+letter-spacing:.03em;
+
+font-size:26px;
+
+font-weight:600;
+
+margin-bottom:10px;
 
 text-align:center;
+
+color:var(--cream);
 
 }
 
 .service h3{
 
-font-size:42px;
+font-family:var(--font-display);
 
-color:#D4AF37;
+font-size:36px;
+
+font-weight:800;
+
+color:var(--gold);
+
+}
+
+.service h3 span{
+
+font-family:var(--font-serif);
+
+font-size:17px;
+
+font-weight:500;
+
+color:var(--gold-light);
+
+margin-left:4px;
 
 }
 
@@ -586,65 +806,101 @@ background:
 
 linear-gradient(
 135deg,
-rgba(212,175,55,.25),
-rgba(255,255,255,.08)
+rgba(201,162,39,.22),
+rgba(16,37,68,.9)
 );
+
+border-color:rgba(201,162,39,.75);
 
 box-shadow:
-
-0 0 40px rgba(212,175,55,.35);
-
-}
-
-/* ===========================================
-   ЗОЛОТАЯ ЛИНИЯ
-=========================================== */
-
-.prices::after{
-
-content:"";
-
-position:absolute;
-
-width:500px;
-
-height:4px;
-
-background:#D4AF37;
-
-top:50%;
-
-border-radius:5px;
-
-opacity:.8;
+0 0 0 1px rgba(201,162,39,.2),
+0 0 30px rgba(201,162,39,.25);
 
 }
 
 /* ===========================================
-   СВЕЧЕНИЕ
+   ИНДИКАТОРЫ
 =========================================== */
 
-.prices::before{
+.indicators{
 
-content:"";
+display:flex;
 
-position:absolute;
+gap:12px;
 
-width:800px;
+margin-top:38px;
 
-height:800px;
+}
 
-background:
+.dot{
 
-radial-gradient(
+width:7px;
 
-rgba(212,175,55,.12),
+height:7px;
 
-transparent 70%
+border-radius:50%;
 
-);
+border:1px solid var(--gold);
 
-filter:blur(60px);
+background:transparent;
+
+transition:.35s;
+
+}
+
+.dot.active{
+
+background:var(--gold);
+
+box-shadow:0 0 8px rgba(201,162,39,.6);
+
+}
+
+/* ===========================================
+   ПОДСКАЗКА ПРОКРУТКИ
+=========================================== */
+
+.scrollHint{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:4px;
+
+margin-top:26px;
+
+font-variant:small-caps;
+
+letter-spacing:.1em;
+
+font-size:14px;
+
+font-weight:500;
+
+color:var(--gold-light);
+
+opacity:.7;
+
+}
+
+.chev{
+
+font-family:var(--font-display);
+
+font-size:16px;
+
+animation:chevBounce 1.8s ease-in-out infinite;
+
+}
+
+@keyframes chevBounce{
+
+0%,100%{transform:translateY(0);opacity:.5;}
+
+50%{transform:translateY(5px);opacity:1;}
 
 }
 
@@ -661,23 +917,9 @@ transition:.45s;
 
 }
 
-.logo:hover{
-
-filter:drop-shadow(0 0 15px rgba(212,175,55,.55));
-
-}
-
 .service:hover{
 
-transform:
-
-scale(1.03);
-
-}
-
-.qrCard:hover{
-
-border-color:#D4AF37;
+transform:scale(1.02);
 
 }
 
@@ -687,13 +929,21 @@ border-color:#D4AF37;
 
 @media(max-width:1100px){
 
+.page{
+
+padding:32px 24px;
+
+}
+
 .header{
 
 flex-direction:column;
 
 height:auto;
 
-gap:40px;
+gap:20px;
+
+padding:24px 26px;
 
 }
 
@@ -703,17 +953,49 @@ flex-direction:column;
 
 text-align:center;
 
+gap:22px;
+
+}
+
+.eyebrow{
+
+text-align:center;
+
+margin-bottom:8px;
+
+font-size:13px;
+
 }
 
 .logo{
 
-width:130px;
+width:104px;
 
 }
 
 .slogan h1{
 
-font-size:46px;
+font-size:38px;
+
+}
+
+.paper{
+
+padding:28px 26px;
+
+}
+
+.contactRow{
+
+padding:10px 0;
+
+}
+
+.qrEyebrow{
+
+margin-bottom:12px;
+
+font-size:12px;
 
 }
 
@@ -723,15 +1005,89 @@ width:100%;
 
 max-width:340px;
 
+aspect-ratio:auto;
+
 margin:0 auto;
+
+}
+
+.paper{
+
+height:auto;
+
+}
+
+.contactRow{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:4px;
+
+}
+
+.ct-value{
+
+text-align:left;
+
+}
+
+.corner{
+
+width:70px;
+
+height:70px;
+
+}
+
+.corner svg{
+
+width:46px;
+
+height:46px;
+
+margin:14px;
 
 }
 
 .qrRow{
 
-flex-direction:column;
+flex-direction:row;
+
+flex-wrap:wrap;
 
 align-items:center;
+
+gap:16px;
+
+margin-bottom:0;
+
+}
+
+.qrCard{
+
+width:112px;
+
+padding:14px;
+
+}
+
+.qrImage{
+
+width:82px;
+
+height:82px;
+
+margin-bottom:10px;
+
+font-size:16px;
+
+}
+
+.qrCard h3{
+
+font-size:13px;
 
 }
 
@@ -741,21 +1097,53 @@ width:100%;
 
 }
 
+.cylinder::before{
+
+width:92%;
+
+max-width:360px;
+
+height:260px;
+
+}
+
+.cylinderWheel{
+
+width:92%;
+
+max-width:340px;
+
+margin:0 auto;
+
+}
+
 .service{
 
-width:90%;
+width:100%;
+
+left:0;
+
+right:0;
+
+margin:0 auto;
 
 }
 
 .service h2{
 
-font-size:24px;
+font-size:22px;
 
 }
 
 .service h3{
 
-font-size:32px;
+font-size:30px;
+
+}
+
+.prices h1{
+
+font-size:40px;
 
 }
 
