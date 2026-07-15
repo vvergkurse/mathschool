@@ -1,6 +1,6 @@
-/* ==========================
+/* ===========================
    RESET
-========================== */
+=========================== */
 
 *{
     margin:0;
@@ -8,48 +8,36 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
+html,
 body{
-
-    font-family:'Montserrat',sans-serif;
-
+    width:100%;
+    height:100%;
     overflow:hidden;
-
-    background:#06152d;
-
-    color:white;
-
+    font-family:'Montserrat',sans-serif;
+    background:#07152D;
+    color:#fff;
 }
 
-/* ==========================
+/* ===========================
    ФОН
-========================== */
+=========================== */
 
-#bg{
+#background{
 
     position:fixed;
-
-    width:100%;
-
-    height:100%;
+    inset:0;
+    z-index:-2;
 
     background:
-
-    radial-gradient(circle at top,#12386f 0%,#08172e 50%,#040b18 100%);
-
-    z-index:-2;
+    radial-gradient(circle at top,#14396d 0%,#07152d 45%,#040b18 100%);
 
 }
 
-#bg::after{
+#background::after{
 
     content:"";
 
     position:absolute;
-
     inset:0;
 
     background-image:
@@ -58,555 +46,289 @@ body{
 
     linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
 
-    background-size:50px 50px;
+    background-size:60px 60px;
+
+    opacity:.35;
 
 }
 
-/* ==========================
-   NAVBAR
-========================== */
-
-nav{
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    height:80px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 70px;
-
-    background:rgba(4,15,35,.65);
-
-    backdrop-filter:blur(20px);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-    z-index:999;
-
-}
-
-.logoBlock{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-}
-
-.logo{
-
-    width:70px;
-
-}
-
-.logoBlock h2{
-
-    color:#d4af37;
-
-    font-size:24px;
-
-}
-
-.logoBlock span{
-
-    color:#ddd;
-
-    font-size:13px;
-
-}
-
-nav ul{
-
-    display:flex;
-
-    gap:35px;
-
-    list-style:none;
-
-}
-
-nav a{
-
-    text-decoration:none;
-
-    color:white;
-
-    transition:.3s;
-
-    font-weight:500;
-
-}
-
-nav a:hover{
-
-    color:#d4af37;
-
-}
-
-/* ==========================
-   ОБЩИЕ ЭКРАНЫ
-========================== */
+/* ===========================
+   СТРАНИЦЫ
+=========================== */
 
 #pages{
-
-    transition:1s ease;
-
-}
-
-.page{
-
-    width:100%;
-
-    height:100vh;
-
-    padding:130px 90px;
-
-}
-
-/* ==========================
-   ГЛАВНАЯ
-========================== */
-
-.hero{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-}
-
-.heroLeft{
-
-    width:50%;
-
-}
-
-.heroLeft h1{
-
-    font-size:64px;
-
-    line-height:1.2;
-
-    margin-bottom:30px;
-
-}
-
-.heroLeft p{
-
-    font-size:22px;
-
-    color:#d5d5d5;
-
-    line-height:1.7;
-
-}
-
-.buttons{
-
-    display:flex;
-
-    gap:20px;
-
-    margin-top:50px;
-
-}
-
-button{
-
-    padding:18px 42px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#d4af37;
-
-    color:#08172e;
-
-    cursor:pointer;
-
-    font-size:18px;
-
-    font-weight:700;
-
-    transition:.35s;
-
-}
-
-button:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:0 20px 35px rgba(212,175,55,.35);
-
-}
-
-.second{
-
-    background:transparent;
-
-    color:white;
-
-    border:2px solid #d4af37;
-
-}
-
-.second:hover{
-
-    background:#d4af37;
-
-    color:#06152d;
-
-}
-
-/* ==========================
-   КОНТАКТЫ
-========================== */
-
-.contactsCard{
-
-    width:360px;
-
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(15px);
-
-    padding:35px;
-
-    border-radius:25px;
-
-    border:1px solid rgba(255,255,255,.1);
-
-}
-
-.contactsCard h2{
-
-    margin-bottom:25px;
-
-    color:#d4af37;
-
-}
-
-.contactsCard p{
-
-    margin:15px 0;
-
-}
-
-.qrContainer{
-
-    display:flex;
-
-    gap:25px;
-
-    margin-top:35px;
-
-}
-
-.qr{
-
-    width:180px;
-
-    height:180px;
-
-    border-radius:20px;
-
-    border:3px dashed #d4af37;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:rgba(255,255,255,.05);
-
-}
-
-/* ==========================
-   УСЛУГИ
-========================== */
-
-.services h1{
-
-    text-align:center;
-
-    font-size:58px;
-
-    color:#d4af37;
-
-    margin-bottom:60px;
-
-}
-
-.cards{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:35px;
-
-}
-
-.card{
-
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(15px);
-
-    border-radius:25px;
-
-    padding:45px;
-
-    text-align:center;
-
-    transition:.4s;
-
-    border:1px solid rgba(255,255,255,.08);
-
-}
-
-.card:hover{
-
-    transform:translateY(-15px);
-
-    box-shadow:0 25px 45px rgba(0,0,0,.4);
-
-}
-
-.icon{
-
-    font-size:60px;
-
-    margin-bottom:20px;
-
-}
-
-.card h2{
-
-    margin-bottom:18px;
-
-}
-
-.card p{
-
-    color:#d5d5d5;
-
-}
-
-/* ==========================
-   О ПРОФЕССОРЕ
-========================== */
-
-.about h1,
-.prices h1,
-.contacts h1{
-
-    text-align:center;
-
-    font-size:58px;
-
-    color:#d4af37;
-
-    margin-bottom:60px;
-
-}
-
-.aboutBox{
-
-    max-width:900px;
-
-    margin:auto;
-
-    padding:45px;
-
-    border-radius:25px;
-
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(15px);
-
-    line-height:2;
-
-    font-size:22px;
-
-}
-
-/* ==========================
-   ЦЕНЫ
-========================== */
-
-.priceCards{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:35px;
-
-}
-
-.price{
-
-    width:320px;
-
-    text-align:center;
-
-    padding:45px;
-
-    border-radius:25px;
-
-    background:rgba(255,255,255,.08);
-
-    transition:.35s;
-
-}
-
-.price:hover{
-
-    transform:scale(1.05);
-
-}
-
-.price h3{
-
-    color:#d4af37;
-
-    font-size:48px;
-
-    margin:25px 0;
-
-}
-
-/* ==========================
-   КОНТАКТЫ
-========================== */
-
-.contactWindow{
-
-    width:650px;
-
-    margin:auto;
-
-    padding:45px;
-
-    border-radius:25px;
-
-    background:rgba(255,255,255,.08);
-
-    text-align:center;
-
-}
-
-.contactWindow p{
-
-    margin:18px;
-
-    font-size:22px;
-
-}
-
-/* ==========================
-   АДАПТИВ
-========================== */
-
-@media(max-width:1100px){
-
-.hero{
-
-flex-direction:column;
-
-justify-content:center;
-
-gap:60px;
-
-}
-
-.heroLeft{
-
-width:100%;
-
-text-align:center;
-
-}
-
-.cards{
-
-grid-template-columns:1fr;
-
-}
-
-.priceCards{
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-nav ul{
-
-display:none;
-
-}
-
-}
-/* Анимации */
-
-.card,
-.price,
-.contactsCard,
-.aboutBox,
-.contactWindow{
-
-    opacity:0;
-
-    transform:translateY(60px);
 
     transition:1s;
 
 }
 
-.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
 .page{
 
-    opacity:.25;
+    width:100%;
+    height:100vh;
 
-    transition:opacity .6s;
-
-}
-
-.page.active{
-
-    opacity:1;
+    padding:50px 80px;
 
 }
 
-nav a.active{
+/* ===========================
+   ПЕРВЫЙ ЭКРАН
+=========================== */
 
-    color:#d4af37;
+.hero{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+}
+
+/* ===========================
+   БОЛЬШАЯ ШАПКА
+=========================== */
+
+.header{
+
+    height:52vh;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:60px;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.07);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ===========================
+   ЛЕВАЯ ЧАСТЬ
+=========================== */
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:45px;
+
+}
+
+.logo{
+
+    width:170px;
+
+    transition:.4s;
+
+}
+
+.logo:hover{
+
+    transform:rotate(-4deg) scale(1.05);
+
+}
+
+.slogan h1{
+
+    font-size:68px;
+
+    line-height:1;
+
+    font-weight:800;
+
+    color:#D4AF37;
+
+}
+
+/* ===========================
+   КОНТАКТЫ
+=========================== */
+
+.contacts{
+
+    width:360px;
+
+}
+
+.paper{
+
+    position:relative;
+
+    background:white;
+
+    color:#07152D;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+.paper h2{
+
+    color:#07152D;
+
+    margin-bottom:12px;
+
+}
+
+.line{
+
+    width:90px;
+
+    height:4px;
+
+    background:#D4AF37;
+
+    margin-bottom:20px;
+
+}
+
+.paper p{
+
+    margin:14px 0;
+
+    font-weight:500;
+
+}
+
+/* ===========================
+   ЗАГНУТЫЙ УГОЛ
+=========================== */
+
+.corner{
+
+    position:absolute;
+
+    right:0;
+
+    bottom:0;
+
+    width:110px;
+
+    height:110px;
+
+    background:#ececec;
+
+    clip-path:polygon(
+    25% 0,
+    100% 0,
+    100% 100%,
+    0 100%
+    );
+
+    box-shadow:
+    -5px -5px 15px rgba(0,0,0,.15);
+
+}
+
+.corner svg{
+
+    width:75px;
+
+    height:75px;
+
+    margin:22px;
+
+}
+
+.corner line{
+
+    stroke:#07152D;
+
+    stroke-width:3;
+
+}
+
+.corner path{
+
+    fill:none;
+
+    stroke:#D4AF37;
+
+    stroke-width:4;
+
+}
+
+/* ===========================
+   QR
+=========================== */
+
+.qrRow{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:45px;
+
+    margin-bottom:35px;
+
+}
+
+.qrCard{
+
+    width:220px;
+
+    padding:22px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.07);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.qrCard:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.35);
+
+}
+
+.qrImage{
+
+    width:160px;
+
+    height:160px;
+
+    margin:auto;
+
+    margin-bottom:18px;
+
+    border:3px dashed #D4AF37;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:30px;
+
+    font-weight:700;
 
 }
