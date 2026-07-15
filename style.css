@@ -702,3 +702,62 @@ font-size:32px;
 }
 
 }
+.cylinder{
+
+perspective:1600px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.cylinderWheel{
+
+position:relative;
+
+width:500px;
+
+height:300px;
+
+transform-style:preserve-3d;
+
+transition:transform .8s cubic-bezier(.22,.61,.36,1);
+
+}
+
+.service{
+
+position:absolute;
+
+left:0;
+
+top:90px;
+
+width:100%;
+
+height:120px;
+
+backface-visibility:hidden;
+
+}
+
+.service:nth-child(1){
+
+transform:rotateX(0deg) translateZ(170px);
+
+}
+
+.service:nth-child(2){
+
+transform:rotateX(120deg) translateZ(170px);
+
+}
+
+.service:nth-child(3){
+
+transform:rotateX(240deg) translateZ(170px);
+
+}
